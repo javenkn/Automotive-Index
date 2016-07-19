@@ -28,8 +28,8 @@ CREATE USER indexed_cars_user;
 
 SELECT COUNT(*) FROM car_models;
 
-CREATE INDEX index_of_car_models
-  ON car_models (make_code, model_code, year);
+-- CREATE INDEX index_of_car_models
+--   ON car_models (make_code, model_code, year);
 
 \timing
 
@@ -41,6 +41,7 @@ SELECT make_title FROM car_models
 
   -- 25.597 ms w/o index
   -- 1.638 ms w/ index
+  -- 1.544 ms w/ index in script file
 
 -- Run a query to list all model_title values where the make_code is 'NISSAN', and the model_code is 'GT-R' without any duplicate
 -- rows, and note the time somewhere. (should have 1 result)
@@ -51,6 +52,7 @@ SELECT model_title FROM car_models
 
   -- 24.023 ms w/o index
   -- 0.348 ms w/ index
+  -- 0.373 ms w/ index in script file
 
 -- Run a query to list all make_code, model_code, model_title, and year from car_models where the make_code is 'LAM', and note
 -- the time somewhere. (should have 1360 rows)
@@ -59,6 +61,7 @@ SELECT * FROM car_models
 
   -- 25.087 ms w/o index
   -- 1.243 ms w/ index
+  -- 1.387 ms w/ index in script file
 
 -- Run a query to list all fields from all car_models in years between 2010 and 2015, and note the time somewhere (should have
 -- 78840 rows)
@@ -67,6 +70,7 @@ SELECT * FROM car_models
 
   -- 77.301 ms w/o index
   -- 74.026 ms w/ index
+  -- 74.227 ms w/ index in script file
 
 -- Run a query to list all fields from all car_models in the year of 2010, and note the time somewhere (should have 13140 rows)
 SELECT * FROM car_models
@@ -74,3 +78,4 @@ SELECT * FROM car_models
 
   -- 35.570 ms w/o index
   -- 35.044 ms w/ index
+  -- 35.933 ms w/ index in script file
