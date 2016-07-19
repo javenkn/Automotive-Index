@@ -35,9 +35,8 @@ SELECT COUNT(*) FROM car_models;
 
 -- Run a query to get a list of all make_title values from the car_models table
 -- where the make_code is 'LAM', without any duplicate rows, and note the time somewhere. (should have 1 result)
-SELECT make_title FROM car_models
-  WHERE make_code = 'LAM'
-  GROUP BY make_title;
+SELECT DISTINCT make_title FROM car_models
+  WHERE make_code = 'LAM';
 
   -- 25.597 ms w/o index
   -- 1.638 ms w/ index
@@ -45,10 +44,9 @@ SELECT make_title FROM car_models
 
 -- Run a query to list all model_title values where the make_code is 'NISSAN', and the model_code is 'GT-R' without any duplicate
 -- rows, and note the time somewhere. (should have 1 result)
-SELECT model_title FROM car_models
+SELECT DISTINCT model_title FROM car_models
   WHERE make_code = 'NISSAN'
-  AND model_code = 'GT-R'
-  GROUP BY model_title;
+  AND model_code = 'GT-R';
 
   -- 24.023 ms w/o index
   -- 0.348 ms w/ index
