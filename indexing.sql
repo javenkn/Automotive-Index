@@ -22,3 +22,5 @@ CREATE USER indexed_cars_user;
 \i scripts/car_model_data.sql;
 \i scripts/car_model_data.sql;
 \i scripts/car_model_data.sql;
+
+SELECT COUNT(*) FROM car_models;
